@@ -12,6 +12,8 @@ COPY Gemfile /usr/app
 
 RUN bundle install
 
+COPY fly_login.rb /usr/app
+
 COPY set_pipeline.sh /usr/app
 
 ENTRYPOINT set_pipeline.sh
