@@ -8,7 +8,7 @@ COPY Gemfile .
 
 RUN bundle install
 
-COPY fly_login.rb .
+COPY fly_login.rb /fly_login.rb
 
 COPY set_pipeline.sh /set_pipeline.sh
 
