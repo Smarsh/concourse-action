@@ -4,7 +4,7 @@ set -e
 
 echo "Concourse login ..."
 
-ruby ./fly_login.rb \
+ruby fly_login.rb \
       "${CONCOURSE_USERNAME}" \
       "${CONCOURSE_PASSWORD}" \
       "${CONCOURSE_ENV}" \
