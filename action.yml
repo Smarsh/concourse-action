@@ -1,0 +1,15 @@
+name: Concourse
+description: 'Automatically set pipelines whenever ci subdirectory is changed'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+inputs:
+  CONCOURSE_USERNAME:
+    required: true
+  CONCOURSE_PASSWORD:
+    required: true
+  CONCOURSE_ENV:
+    description: "The team you are working with"
+    required: true
+  CONCOURSE_URL:
+    required: true
