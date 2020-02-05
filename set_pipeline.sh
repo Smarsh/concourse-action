@@ -4,7 +4,6 @@ set -e
 
 echo "Concourse login ..."
 
-# This is necessary because Smarsh uses Cloud Foundry's UAA for Concourse user authentication, and it's not possible to do a regulary `fly login`
 ruby ./fly_login.rb \
       "${CONCOURSE_USERNAME}" \
       "${CONCOURSE_PASSWORD}" \
