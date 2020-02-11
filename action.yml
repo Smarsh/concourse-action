@@ -8,7 +8,7 @@ inputs:
     required: true
   CONCOURSE_PASSWORD:
     required: true
-  CONCOURSE_ENV:
+  CONCOURSE_TEAM:
     description: "The team you are working with"
     required: true
   CONCOURSE_URL:
