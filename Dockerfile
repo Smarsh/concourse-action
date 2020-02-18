@@ -1,14 +1,14 @@
-FROM ruby:latest
+FROM alpine
 
-RUN wget https://github.com/concourse/concourse/releases/download/v4.2.3/fly_linux_amd64 && \
-    mv fly_linux_amd64 /usr/local/bin/fly && \
-    chmod +x /usr/local/bin/fly 
+RUN apk add --update --no-cache \
+    ca-certificates \
+    wget \
+    bash 
+    
+RUN wget https://github.com/concourse/concourse/releases/download/v5.8.0/fly-5.8.0-linux-amd64.tgz && \
+    tar xf fly*.tgz -C /usr/local/bin/ && \
+    chmod +x /usr/local/bin/fly
 
-COPY Gemfile .
-
-RUN bundle install
-
-COPY fly_login.rb /fly_login.rb
 
 COPY set_pipeline.sh /set_pipeline.sh
 
