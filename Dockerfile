@@ -12,4 +12,4 @@ RUN wget https://github.com/concourse/concourse/releases/download/v5.8.0/fly-5.8
 
 COPY set_pipeline.sh /set_pipeline.sh
 
-ENTRYPOINT ["/set_pipeline.sh"]
+CMD ["sh", "/set_pipeline.sh"]
