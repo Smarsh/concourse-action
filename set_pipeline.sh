@@ -14,9 +14,9 @@ fly --target "${CONCOURSE_TEAM}" login \
 
 fly -t ${CONCOURSE_TEAM} sync
 
-fly --target ${CONCOURSE_TEAM} set-pipeline \
+fly --target "${CONCOURSE_TEAM}" set-pipeline \
   --pipeline "${PIPELINE_NAME}" \
-  --config git-app-pipeline/"${PIPELINE_PATH}" \
+  --config "${PIPELINE_CONFIG}" \
   --non-interactive
 
-fly --target ${CONCOURSE_TEAM} unpause-pipeline --pipeline "${PIPELINE_NAME}"
+fly --target "${CONCOURSE_TEAM}" unpause-pipeline --pipeline "${PIPELINE_NAME}"
