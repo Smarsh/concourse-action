@@ -5,19 +5,18 @@ set -e
 
 echo "Concourse login ..."
 
-# This is necessary because Smarsh uses Cloud Foundry's UAA for Concourse user authentication, and it's not possible to do a regulary `fly login`
-fly --target "${CONCOURSE_ENV}" login \
+fly --target "${CONCOURSE_TEAM}" login \
   --concourse-url "${CONCOURSE_URL}" \
-  --team-name "${CONCOURSE_ENV}" \
+  --team-name "${CONCOURSE_TEAM}" \
   --username "${CONCOURSE_USERNAME}" \
   --password "${CONCOURSE_PASSWORD}"
 
 
-fly -t ${CONCOURSE_ENV} sync
+fly -t ${CONCOURSE_TEAM} sync
 
-fly --target ${CONCOURSE_ENV} set-pipeline \
+fly --target ${CONCOURSE_TEAM} set-pipeline \
   --pipeline "${PIPELINE_NAME}" \
   --config git-app-pipeline/"${PIPELINE_PATH}" \
   --non-interactive
 
-fly --target ${CONCOURSE_ENV} unpause-pipeline --pipeline "${PIPELINE_NAME}"
+fly --target ${CONCOURSE_TEAM} unpause-pipeline --pipeline "${PIPELINE_NAME}"
