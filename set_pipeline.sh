@@ -1,12 +1,10 @@
-  
 #!/bin/bash
+
+set -e
 
 credhub login --skip-tls-validation
 
-
 CONCOURSE_PASSWORD="$(credhub get -q -n /concourse/${CONCOURSE_TEAM}/ci-user-password)"
-
-set -e
 
 echo "Concourse login ..."
 
