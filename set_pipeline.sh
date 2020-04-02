@@ -17,9 +17,19 @@ fly --target "${CONCOURSE_TEAM}" login \
 
 fly -t ${CONCOURSE_TEAM} sync
 
-fly --target "${CONCOURSE_TEAM}" set-pipeline \
-  --pipeline "${PIPELINE_NAME}" \
-  --config "${PIPELINE_CONFIG}" \
-  --non-interactive
+if [ -z $VARIABLE_FILE ]; then
+  fly --target "${CONCOURSE_TEAM}" set-pipeline \
+    --pipeline "${PIPELINE_NAME}" \
+    --config "${PIPELINE_CONFIG}" \
+    --non-interactive
 
-fly --target "${CONCOURSE_TEAM}" unpause-pipeline --pipeline "${PIPELINE_NAME}"
+  fly --target "${CONCOURSE_TEAM}" unpause-pipeline --pipeline "${PIPELINE_NAME}"
+else
+  fly --target "${CONCOURSE_TEAM}" set-pipeline \
+    --pipeline "${PIPELINE_NAME}" \
+    --config "${PIPELINE_CONFIG}" \
+    --load-vars-from "${VARIABLE_FILE}"
+    --non-interactive
+
+  fly --target "${CONCOURSE_TEAM}" unpause-pipeline --pipeline "${PIPELINE_NAME}"
+fi
