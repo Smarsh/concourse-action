@@ -13,3 +13,9 @@ inputs:
     required: true
   CONCOURSE_URL:
     required: true
+  PIPELINE_CONFIG:
+    description: "path to pipeline configuration file"
+    required: true
+  VARIABLE_FILE:
+    description: "path to variable file"
+    required: false
