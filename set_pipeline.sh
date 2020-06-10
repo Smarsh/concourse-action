@@ -2,7 +2,12 @@
 
 set -e
 
-credhub login --skip-tls-validation
+if [ -z $CREDHUB_CA_CERT ]; then
+  credhub login --skip-tls-validation
+else
+  credhub login
+fi
+
 
 CONCOURSE_PASSWORD="$(credhub get -q -n /concourse/${CONCOURSE_TEAM}/ci-user-password)"
 
