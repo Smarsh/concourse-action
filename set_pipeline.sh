@@ -2,7 +2,7 @@
 
 set -e
 
-if [ -z $CREDHUB_CA_CERT ]; then
+if [ -z "$CREDHUB_CA_CERT" ]; then
   credhub login --skip-tls-validation
 else
   credhub login
