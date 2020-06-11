@@ -59,7 +59,7 @@ else
     fly6 --target "${CONCOURSE_TEAM}" set-pipeline \
       --pipeline "${PIPELINE_NAME}" \
       --config "${PIPELINE_CONFIG}" \
-      --load-vars-from "${VARIABLE_FILE}"
+      --load-vars-from "${VARIABLE_FILE}" \
       --non-interactive
 
     fly6 --target "${CONCOURSE_TEAM}" unpause-pipeline --pipeline "${PIPELINE_NAME}"
