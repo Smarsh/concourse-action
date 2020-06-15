@@ -2,8 +2,8 @@ FROM debian
 
 RUN apt-get update && apt-get install -y wget
 
-RUN wget https://github.com/concourse/concourse/releases/download/v6.2.0/fly-6.2.0-linux-amd64.tgz && \
-    tar xf fly-6.2.0-linux-amd64.tgz -C /usr/local/bin/ && \
+RUN wget https://github.com/concourse/concourse/releases/download/v6.3.0/fly-6.3.0-linux-amd64.tgz && \
+    tar xf fly-6.3.0-linux-amd64.tgz -C /usr/local/bin/ && \
     mv /usr/local/bin/fly /usr/local/bin/fly6 && \
     chmod +x /usr/local/bin/fly6
 
