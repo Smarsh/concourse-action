@@ -2,7 +2,7 @@ FROM debian
 
 RUN apt-get update && apt-get install -y wget
 
-RUN wget https://github.com/concourse/concourse/releases/download/v5.8.0/fly-5.8.0-linux-amd64.tgz && \
+RUN wget https://github.com/concourse/concourse/releases/download/v7.0.0/fly-7.0.0-linux-amd64.tgz && \
     tar xf fly*.tgz -C /usr/local/bin/ && \
     chmod +x /usr/local/bin/fly
 
